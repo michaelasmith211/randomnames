@@ -146,7 +146,7 @@ export default function HomePage() {
           </div>
 
           {/* Interactive Generator Container */}
-          <NameGenerator />
+          <NameGenerator initialOptions={{ type: 'full', includeSurname: true }} />
         </div>
       </section>
 

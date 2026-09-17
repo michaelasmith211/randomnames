@@ -304,7 +304,7 @@ export function generateNames(options: GeneratorOptions): GeneratedName[] {
     let finalName = fn.name;
 
     if (isFullName) {
-      let surname = customSurname;
+      let surname = customSurname ? customSurname.trim() : '';
       if (!surname) {
         // Find compatible surname matching origin, or random
         const compatibleSurnames = SURNAMES.filter((s) => s.origin === fn.origin);

@@ -39,14 +39,22 @@ export function NameGenerator({
   title = 'Generate Random Names',
   subtitle = 'Customize your options below and click Generate to produce instant, creative names.',
 }: NameGeneratorProps) {
+  const defaultType = initialOptions.type || 'full';
+  const defaultIncludeSurname =
+    initialOptions.includeSurname !== undefined
+      ? initialOptions.includeSurname
+      : defaultType === 'first'
+      ? false
+      : true;
+
   const [options, setOptions] = useState<GeneratorOptions>({
-    type: initialOptions.type || 'first',
+    type: defaultType,
     gender: initialOptions.gender || 'any',
     origin: initialOptions.origin || 'any',
     style: initialOptions.style || 'any',
     count: initialOptions.count || 10,
     subCategory: initialOptions.subCategory || 'none',
-    includeSurname: initialOptions.includeSurname ?? false,
+    includeSurname: defaultIncludeSurname,
     customSurname: initialOptions.customSurname || '',
     ...initialOptions,
   });

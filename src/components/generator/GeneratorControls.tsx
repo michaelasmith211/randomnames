@@ -18,6 +18,15 @@ export function GeneratorControls({
   isLoading = false,
 }: GeneratorControlsProps) {
   const updateField = <K extends keyof GeneratorOptions>(field: K, value: GeneratorOptions[K]) => {
+    if (field === 'type') {
+      const newType = value as NameType;
+      onChange({
+        ...options,
+        type: newType,
+        includeSurname: newType === 'full' ? true : (newType === 'first' ? false : options.includeSurname),
+      });
+      return;
+    }
     onChange({ ...options, [field]: value });
   };
 
@@ -40,8 +49,8 @@ export function GeneratorControls({
               onChange={(e) => updateField('type', e.target.value as NameType)}
               className="w-full appearance-none bg-slate-50 border border-slate-300 hover:border-indigo-500 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:bg-white transition-colors cursor-pointer"
             >
-              <option value="first">First Names</option>
               <option value="full">Full Names (First + Last)</option>
+              <option value="first">First Names</option>
               <option value="last">Last Names (Surnames)</option>
               <option value="character">Character Names</option>
               <option value="fantasy">Fantasy Names</option>
@@ -232,23 +241,42 @@ export function GeneratorControls({
         </div>
       </div>
 
-      {/* Optional Surname Field when Full Name is selected */}
-      {(options.type === 'full' || options.includeSurname) && (
-        <div className="mb-4 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center gap-3">
-          <label htmlFor="custom-surname-input" className="text-xs font-semibold text-slate-600 whitespace-nowrap">
-            Custom Surname (Optional):
+      {/* Optional Surname Options & Custom Surname */}
+      {(!isFantasy && !isUsername && !isBusiness && options.type !== 'last') && (
+        <div className="mb-4 pt-3 border-t border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <label className="inline-flex items-center gap-2 cursor-pointer text-xs font-semibold text-slate-700 select-none">
+            <input
+              type="checkbox"
+              id="include-surname-checkbox"
+              checked={options.type === 'full' || Boolean(options.includeSurname)}
+              onChange={(e) => {
+                const checked = e.target.checked;
+                onChange({
+                  ...options,
+                  type: checked ? 'full' : 'first',
+                  includeSurname: checked,
+                });
+              }}
+              className="w-4 h-4 text-indigo-600 rounded border-slate-300 focus:ring-indigo-500 cursor-pointer accent-indigo-600"
+            />
+            <span>Include Surname (Show First + Last Name)</span>
           </label>
-          <input
-            id="custom-surname-input"
-            type="text"
-            value={options.customSurname || ''}
-            onChange={(e) => updateField('customSurname', e.target.value)}
-            placeholder="e.g. Smith, Blackwood, Tanaka..."
-            className="flex-1 max-w-sm px-3 py-1.5 text-sm bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-          <span className="text-xs text-slate-400">
-            Leave blank to generate compatible random surnames automatically.
-          </span>
+
+          {(options.type === 'full' || options.includeSurname) && (
+            <div className="flex items-center gap-2 flex-1 md:max-w-md">
+              <label htmlFor="custom-surname-input" className="text-xs font-medium text-slate-500 whitespace-nowrap">
+                Custom Surname:
+              </label>
+              <input
+                id="custom-surname-input"
+                type="text"
+                value={options.customSurname || ''}
+                onChange={(e) => updateField('customSurname', e.target.value)}
+                placeholder="Auto-match origin or type custom..."
+                className="w-full px-3 py-1.5 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+          )}
         </div>
       )}
 
