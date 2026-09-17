@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { CookieConsent } from '@/components/layout/CookieConsent';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { constructMetadata } from '@/lib/metadata';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -37,8 +38,26 @@ export default function RootLayout({
         <JsonLd type="website" />
         <JsonLd type="webapp" />
         <JsonLd type="organization" />
+        {/* Google Analytics GA4 (G-HT87NWEHNT) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-HT87NWEHNT"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-HT87NWEHNT', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col font-sans bg-slate-50 text-slate-900">
+        <GoogleAnalytics />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
