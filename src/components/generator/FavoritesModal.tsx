@@ -93,7 +93,7 @@ export function FavoritesModal({
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+            className="p-2 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors"
             aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
@@ -135,10 +135,10 @@ export function FavoritesModal({
         {/* Modal Content */}
         <div className="flex-1 overflow-y-auto p-6 space-y-2.5">
           {favorites.length === 0 ? (
-            <div className="py-12 text-center text-slate-400">
-              <Heart className="w-12 h-12 mx-auto stroke-1 text-slate-300 mb-3" />
-              <p className="text-base font-medium text-slate-700">No favorite names saved yet</p>
-              <p className="text-xs text-slate-500 mt-1">
+            <div className="py-12 text-center text-slate-500">
+              <Heart className="w-12 h-12 mx-auto stroke-1 text-slate-400 mb-3" />
+              <p className="text-base font-medium text-slate-800">No favorite names saved yet</p>
+              <p className="text-xs text-slate-600 mt-1">
                 Click the heart icon on any generated name to save it for quick reference!
               </p>
             </div>

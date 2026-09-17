@@ -70,7 +70,7 @@ export function Header({ onOpenFavorites }: HeaderProps) {
 
               {generatorsDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-64 rounded-2xl bg-white border border-slate-200 shadow-xl py-2 z-50 animate-in fade-in-50 zoom-in-95">
-                  <div className="px-3 py-1.5 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                  <div className="px-3 py-1.5 text-[11px] font-bold text-slate-600 uppercase tracking-wider">
                     Popular
                   </div>
                   <Link
@@ -188,7 +188,7 @@ export function Header({ onOpenFavorites }: HeaderProps) {
             <span>All Categories & Generators</span>
             <Compass className="w-4 h-4 text-slate-400" />
           </Link>
-          <div className="px-3 py-1 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          <div className="px-3 py-1 text-xs font-bold text-slate-600 uppercase tracking-wider">
             Popular Generators
           </div>
           <Link

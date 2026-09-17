@@ -132,7 +132,7 @@ export default function ContactPage() {
             </form>
           )}
 
-          <div className="mt-10 pt-6 border-t border-slate-100 text-center text-xs text-slate-400">
+          <div className="mt-10 pt-6 border-t border-slate-100 text-center text-xs text-slate-600 font-medium">
             You can also reach our engineering team directly at <strong>support@randomnamegenerator.dev</strong>
           </div>
         </div>

@@ -266,10 +266,10 @@ export function NameGenerator({
         {/* Results List */}
         <div className="pt-6">
           {results.length === 0 ? (
-            <div className="py-12 text-center text-slate-400">
-              <Sparkles className="w-10 h-10 mx-auto text-slate-300 mb-2" />
-              <p className="text-base font-medium text-slate-700">Ready to generate!</p>
-              <p className="text-xs text-slate-500 mt-1">
+            <div className="py-12 text-center text-slate-500">
+              <Sparkles className="w-10 h-10 mx-auto text-slate-400 mb-2" />
+              <p className="text-base font-medium text-slate-800">Ready to generate!</p>
+              <p className="text-xs text-slate-600 mt-1">
                 Click the &ldquo;Generate Names&rdquo; button above to create fresh names.
               </p>
             </div>
@@ -305,7 +305,7 @@ export function NameGenerator({
                             </span>
                           )}
                           {item.meaning && (
-                            <span className="text-slate-500 truncate italic text-[11px]">
+                            <span className="text-slate-600 truncate italic text-[11px] font-medium">
                               &ldquo;{item.meaning}&rdquo;
                             </span>
                           )}

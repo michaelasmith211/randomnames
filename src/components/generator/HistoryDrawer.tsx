@@ -68,7 +68,7 @@ export function HistoryDrawer({
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+            className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -84,7 +84,7 @@ export function HistoryDrawer({
                 onClear();
                 onToast('Cleared generation history');
               }}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-rose-600 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-rose-600 transition-colors"
             >
               <Trash2 className="w-3.5 h-3.5" />
               <span>Clear History</span>
@@ -95,10 +95,10 @@ export function HistoryDrawer({
         {/* History items */}
         <div className="flex-1 overflow-y-auto p-6 space-y-4">
           {history.length === 0 ? (
-            <div className="py-16 text-center text-slate-400">
-              <History className="w-10 h-10 mx-auto stroke-1 text-slate-300 mb-2" />
-              <p className="text-sm font-medium text-slate-700">No generation history yet</p>
-              <p className="text-xs text-slate-500 mt-1">
+            <div className="py-16 text-center text-slate-500">
+              <History className="w-10 h-10 mx-auto stroke-1 text-slate-400 mb-2" />
+              <p className="text-sm font-medium text-slate-800">No generation history yet</p>
+              <p className="text-xs text-slate-600 mt-1">
                 Generations will appear here so you can easily restore previous runs.
               </p>
             </div>
@@ -118,7 +118,7 @@ export function HistoryDrawer({
                     <span className="text-xs font-bold text-slate-700 truncate max-w-[200px]">
                       {entry.label}
                     </span>
-                    <span className="text-[11px] text-slate-400">{timeString}</span>
+                    <span className="text-[11px] text-slate-500 font-medium">{timeString}</span>
                   </div>
 
                   <p className="text-xs text-slate-500 mb-3 truncate">
