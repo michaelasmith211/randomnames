@@ -36,8 +36,10 @@ jobs:
           NEXT_TELEMETRY_DISABLED: "1"
         run: npm run build
 
-      - name: Ensure .nojekyll exists
-        run: touch ./out/.nojekyll
+      - name: Configure GitHub Pages assets and CNAME
+        run: |
+          touch ./out/.nojekyll
+          echo "randomnamegenerator.dev" > ./out/CNAME
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
