@@ -87,5 +87,10 @@ export function constructMetadata({
       ],
       shortcut: '/favicon.ico',
     },
+    verification: {
+      other: {
+        'msvalidate.01': '62a8b0cd980913ff51d3a35c55b32037',
+      },
+    },
   };
 }
