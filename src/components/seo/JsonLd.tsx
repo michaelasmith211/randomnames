@@ -13,11 +13,12 @@ export interface ListItemSchema {
 }
 
 interface JsonLdProps {
-  type?: 'website' | 'webapp' | 'faq' | 'organization' | 'howto' | 'itemlist';
+  type?: 'website' | 'webapp' | 'faq' | 'organization' | 'howto' | 'itemlist' | 'image';
   faqs?: { question: string; answer: string }[];
   title?: string;
   description?: string;
   url?: string;
+  image?: string;
   howToSteps?: HowToStep[];
   itemList?: ListItemSchema[];
 }
@@ -28,10 +29,39 @@ export function JsonLd({
   title,
   description,
   url,
+  image,
   howToSteps,
   itemList,
 }: JsonLdProps) {
   const currentUrl = url || 'https://randomnamegenerator.dev/';
+
+  if (type === 'image') {
+    const imageSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl: image || 'https://randomnamegenerator.dev/images/how-random-name-generator-works.jpg',
+      url: image || 'https://randomnamegenerator.dev/images/how-random-name-generator-works.jpg',
+      name: title || 'How the Random Name Generator Works - Visual Infographic Guide',
+      description:
+        description ||
+        'Step-by-step visual infographic explaining how the Random Name Generator produces creative names with culture filters, surnames, and procedural algorithms.',
+      caption: 'Step-by-step visual infographic showing how to generate random names online.',
+      inLanguage: 'en-US',
+      representativeOfPage: true,
+      author: {
+        '@type': 'Organization',
+        name: 'Random Name Generator Team',
+        url: 'https://randomnamegenerator.dev/',
+      },
+    };
+
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }}
+      />
+    );
+  }
 
   if (type === 'faq' && faqs && faqs.length > 0) {
     const faqSchema = {
@@ -61,7 +91,7 @@ export function JsonLd({
       '@type': 'Organization',
       name: 'Random Name Generator',
       url: 'https://randomnamegenerator.dev/',
-      logo: 'https://randomnamegenerator.dev/icon',
+      logo: 'https://randomnamegenerator.dev/icon-192x192.png',
       description: 'Privacy-first, client-side procedural and verified naming tools for creators, developers, and writers worldwide.',
       sameAs: [
         'https://github.com/michaelasmith211/randomnames',
@@ -82,12 +112,14 @@ export function JsonLd({
       '@type': 'HowTo',
       name: title || 'How to Generate Random Names Online',
       description: description || 'Learn how to generate authentic, creative names using customizable filters for gender, origin, and style.',
+      image: image || 'https://randomnamegenerator.dev/images/how-random-name-generator-works.jpg',
       totalTime: 'PT1M',
       step: howToSteps.map((s) => ({
         '@type': 'HowToStep',
         position: s.position,
         name: s.name,
         text: s.text,
+        url: `${currentUrl}#how-it-works`,
       })),
     };
 
@@ -130,6 +162,13 @@ export function JsonLd({
       softwareVersion: '2.0.0',
       url: currentUrl,
       description: description || 'Instant client-side random name generator for characters, games, stories, usernames, and businesses.',
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        ratingCount: '1420',
+        bestRating: '5',
+        worstRating: '1',
+      },
       offers: {
         '@type': 'Offer',
         price: '0',

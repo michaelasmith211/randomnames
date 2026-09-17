@@ -15,6 +15,10 @@ import {
   Zap,
   Bookmark,
   Crown,
+  Sliders,
+  Cpu,
+  Share2,
+  Layers,
 } from 'lucide-react';
 import { NameGenerator } from '@/components/generator/NameGenerator';
 import { FaqAccordion, FaqItem } from '@/components/seo/FaqAccordion';
@@ -117,6 +121,13 @@ export default function HomePage() {
         title="How to Generate Random Names Online"
         description="Step-by-step instructions on generating random names for characters, stories, games, and businesses."
         howToSteps={HOMEPAGE_HOW_TO_STEPS}
+        image="https://randomnamegenerator.dev/images/how-random-name-generator-works.jpg"
+      />
+      <JsonLd
+        type="image"
+        title="How the Random Name Generator Works - Step by Step Infographic"
+        description="Visual workflow infographic illustrating category selection, procedural name generation, and instant export."
+        image="https://randomnamegenerator.dev/images/how-random-name-generator-works.jpg"
       />
       <JsonLd
         type="itemlist"
@@ -147,6 +158,26 @@ export default function HomePage() {
 
           {/* Interactive Generator Container */}
           <NameGenerator initialOptions={{ type: 'full', includeSurname: true }} />
+
+          {/* Key Platform Stats / Authority Metrics */}
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+            <div className="p-3.5 bg-white/90 rounded-2xl border border-slate-200/90 shadow-xs">
+              <div className="text-xl sm:text-2xl font-black text-indigo-600">1,229+</div>
+              <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider mt-0.5">Verified First Names</div>
+            </div>
+            <div className="p-3.5 bg-white/90 rounded-2xl border border-slate-200/90 shadow-xs">
+              <div className="text-xl sm:text-2xl font-black text-indigo-600">575+</div>
+              <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider mt-0.5">Cultural Surnames</div>
+            </div>
+            <div className="p-3.5 bg-white/90 rounded-2xl border border-slate-200/90 shadow-xs">
+              <div className="text-xl sm:text-2xl font-black text-indigo-600">20+</div>
+              <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider mt-0.5">Global Heritages</div>
+            </div>
+            <div className="p-3.5 bg-white/90 rounded-2xl border border-slate-200/90 shadow-xs">
+              <div className="text-xl sm:text-2xl font-black text-indigo-600">100%</div>
+              <div className="text-[11px] font-bold text-slate-600 uppercase tracking-wider mt-0.5">Client-Side Privacy</div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -329,46 +360,158 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. HOW THE RANDOM NAME GENERATOR WORKS */}
-      <section className="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+      {/* 6. HOW THE RANDOM NAME GENERATOR WORKS (INFOGRAPHIC & GUIDE) */}
+      <section id="how-it-works" className="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold mb-3">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Visual Process &amp; Engine Architecture</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             How the Random Name Generator Works
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-600">
-            A transparent look at our deterministic, client-side generation engine.
+          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            A step-by-step visual look at our client-side generation engine — combining authentic cultural datasets with deterministic procedural algorithms for instant, private results.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-6 rounded-3xl bg-white border border-slate-200 text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 font-extrabold text-xl flex items-center justify-center mb-4">
-              1
+        {/* Infographic Visual Card */}
+        <figure className="mb-12 bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden group">
+          <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+            <picture>
+              <source srcSet="/images/how-random-name-generator-works.avif" type="image/avif" />
+              <img
+                src="/images/how-random-name-generator-works.jpg"
+                alt="How the Random Name Generator works - Step by step visual guide to generating random names with customizable filters, procedural generation, and instant export"
+                width={1376}
+                height={768}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+              />
+            </picture>
+          </div>
+          <figcaption className="px-5 py-3.5 bg-slate-50 border-t border-slate-100 text-center text-xs text-slate-600 font-medium">
+            Figure 1: <strong>How the Random Name Generator works</strong> &mdash; A 3-step visual workflow illustrating preference filtering, client-side procedural generation, and instant export.
+          </figcaption>
+        </figure>
+
+        {/* Step-by-Step Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 text-center flex flex-col items-center shadow-sm hover:border-indigo-300 transition-colors">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 font-extrabold text-lg flex items-center justify-center mb-4">
+              <Sliders className="w-5 h-5 text-indigo-600" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Select Your Criteria</h3>
+            <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">Step 1</span>
+            <h3 className="text-lg font-bold text-slate-900 mb-2">Choose Preferences</h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Filter by name type (first, full, last, fantasy, gamer, brand), cultural origin, gender, and desired quantity from 1 up to 100 names.
+              Select your desired name type (Full Names, First Names, Surnames, Fantasy, or Gamer handles), gender, cultural origin from 20+ regions, and quantity from 1 to 100 names.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-slate-200 text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 font-extrabold text-xl flex items-center justify-center mb-4">
-              2
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 text-center flex flex-col items-center shadow-sm hover:border-indigo-300 transition-colors">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 font-extrabold text-lg flex items-center justify-center mb-4">
+              <Cpu className="w-5 h-5 text-indigo-600" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Instant Client Algorithm</h3>
+            <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">Step 2</span>
+            <h3 className="text-lg font-bold text-slate-900 mb-2">Procedural Generation</h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Our browser engine shuffles verified datasets and combines morphemes procedurally with zero server latency and guaranteed uniqueness per batch.
+              Our browser engine shuffles 1,229+ verified first names and 575+ compatible cultural surnames or combines fantasy morphemes with zero server latency and guaranteed batch uniqueness.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-slate-200 text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 font-extrabold text-xl flex items-center justify-center mb-4">
-              3
+          <div className="p-6 rounded-3xl bg-white border border-slate-200 text-center flex flex-col items-center shadow-sm hover:border-indigo-300 transition-colors">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 font-extrabold text-lg flex items-center justify-center mb-4">
+              <Share2 className="w-5 h-5 text-indigo-600" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Copy, Favorite &amp; Export</h3>
+            <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">Step 3</span>
+            <h3 className="text-lg font-bold text-slate-900 mb-2">Export &amp; Share</h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Copy single names with one click, favorite standout candidates into local browser memory, or download full lists as formatted TXT files.
+              Copy individual names with one click, favorite candidates to offline browser storage, download the complete roster as a TXT file, or share instantly via Web Share API.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. RANDOM NAME GENERATOR CAPABILITIES & COMPARISON TABLE */}
+      <section className="py-16 bg-slate-100/70 border-y border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/80 text-slate-700 text-xs font-bold mb-3">
+              <Layers className="w-3.5 h-3.5 text-indigo-600" />
+              <span>Features &amp; Coverage</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              Random Name Generator Capabilities &amp; Comparison
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600">
+              Compare generator categories, database depths, customizable options, and recommended creative use cases.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr className="bg-slate-50 border-b border-slate-200 text-slate-800 font-bold uppercase tracking-wider text-[11px]">
+                  <th scope="col" className="py-4 px-5">Category</th>
+                  <th scope="col" className="py-4 px-5">Dataset &amp; Synthesis Logic</th>
+                  <th scope="col" className="py-4 px-5">Customization Options</th>
+                  <th scope="col" className="py-4 px-5">Recommended Use Cases</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-slate-700">
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-5 font-bold text-slate-900">
+                    <Link href="/random-full-name-generator/" className="text-indigo-600 hover:underline">
+                      Full Names (First + Last)
+                    </Link>
+                  </td>
+                  <td className="py-4 px-5">1,229+ Verified Given Names paired with 575+ authentic cultural surnames</td>
+                  <td className="py-4 px-5">Gender (M/F/Neutral), 20+ Origins, Style filters, Custom surname entry</td>
+                  <td className="py-4 px-5">Novel protagonists, believable personas, alias generation, baby names</td>
+                </tr>
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-5 font-bold text-slate-900">
+                    <Link href="/fantasy-name-generator/" className="text-indigo-600 hover:underline">
+                      Fantasy &amp; Tabletop RPG
+                    </Link>
+                  </td>
+                  <td className="py-4 px-5">12 archetypes (Elves, Wizards, Dragons, Warriors, Pirates, Medieval, D&amp;D)</td>
+                  <td className="py-4 px-5">Racial dialects, morphemic prefix/suffix synthesis, legendary epithets</td>
+                  <td className="py-4 px-5">D&amp;D 5e campaigns, fantasy novel worldbuilding, MMO character creation</td>
+                </tr>
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-5 font-bold text-slate-900">
+                    <Link href="/username-generator/" className="text-indigo-600 hover:underline">
+                      Usernames &amp; Gamertags
+                    </Link>
+                  </td>
+                  <td className="py-4 px-5">5 styles (Gamer, Esports, Minecraft, Aesthetic, Tech/Developer, Random)</td>
+                  <td className="py-4 px-5">Platform formatting, leetspeak stylings, word-blend prefixes &amp; suffixes</td>
+                  <td className="py-4 px-5">Discord handles, Twitch streaming, Steam, Xbox, PlayStation, TikTok</td>
+                </tr>
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-5 font-bold text-slate-900">
+                    <Link href="/business-name-generator/" className="text-indigo-600 hover:underline">
+                      Business &amp; Startup Brands
+                    </Link>
+                  </td>
+                  <td className="py-4 px-5">4 industries (Tech SaaS, Corporate Holdings, Creative Studios, Boutiques)</td>
+                  <td className="py-4 px-5">Modern portmanteaus, vowel blends, taglines, corporate prefixes</td>
+                  <td className="py-4 px-5">App naming, indie SaaS ventures, agency branding, eCommerce stores</td>
+                </tr>
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-5 font-bold text-slate-900">
+                    <Link href="/categories/" className="text-indigo-600 hover:underline">
+                      Cultural &amp; Regional Heritage
+                    </Link>
+                  </td>
+                  <td className="py-4 px-5">Authentic naming traditions for 20+ world nations &amp; historical cultures</td>
+                  <td className="py-4 px-5">Japanese Kanji roots, Celtic Irish/Scottish patronymics, Indian Sanskrit roots</td>
+                  <td className="py-4 px-5">Culturally accurate storytelling, diaspora genealogy research, screenplays</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
