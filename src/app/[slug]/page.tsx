@@ -48,6 +48,22 @@ export default function GeneratorLandingPage({ params }: PageProps) {
   return (
     <div className="min-h-screen">
       <JsonLd type="faq" faqs={page.faqs} />
+      <JsonLd
+        type="howto"
+        title={`How to Generate ${page.h1.replace(' Generator', '')} Names`}
+        description={`Step-by-step instructions on generating authentic ${page.h1.toLowerCase()} names.`}
+        howToSteps={page.howItWorks.map((step, idx) => ({
+          position: idx + 1,
+          name: step.title,
+          text: step.desc,
+        }))}
+      />
+      <JsonLd
+        type="webapp"
+        title={page.title}
+        description={page.metaDescription}
+        url={`https://randomnamegenerator.dev/${page.slug}/`}
+      />
 
       {/* Hero & Generator Container */}
       <section className="pt-6 pb-14 bg-gradient-to-b from-indigo-50/40 via-white to-slate-50 border-b border-slate-200">

@@ -1,7 +1,15 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 
 export function Footer() {
+  const handleOpenCookiePreferences = () => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('open-cookie-preferences'));
+    }
+  };
+
   return (
     <footer className="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,7 +106,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/dnd-name-generator/" className="hover:text-white transition-colors">
-                  D&D Names
+                  D&amp;D Names
                 </Link>
               </li>
               <li>
@@ -132,7 +140,7 @@ export function Footer() {
           {/* Col 4: Gaming & Online */}
           <div>
             <h3 className="text-white text-xs font-bold uppercase tracking-wider mb-4">
-              Gaming & Online
+              Gaming &amp; Online
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -244,7 +252,7 @@ export function Footer() {
           {/* Col 7: Company & Legal */}
           <div>
             <h3 className="text-white text-xs font-bold uppercase tracking-wider mb-4">
-              Platform
+              Platform &amp; Legal
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -273,15 +281,29 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/cookie-policy/" className="hover:text-white transition-colors">
+                  Cookie Policy
+                </Link>
+              </li>
+              <li>
                 <Link href="/terms/" className="hover:text-white transition-colors">
                   Terms of Service
                 </Link>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={handleOpenCookiePreferences}
+                  className="hover:text-white transition-colors text-left text-xs text-indigo-300 hover:underline pt-1"
+                >
+                  Cookie Preferences
+                </button>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Culture note */}
+        {/* Cultural note */}
         <div className="border-t border-slate-800 pt-8 pb-4 text-xs text-slate-400 leading-relaxed max-w-4xl">
           <p>
             <strong>Cultural Note:</strong> Our international name datasets celebrate global linguistic heritage and are curated using historical records, etymological dictionaries, and official census statistics. They are intended for creative fiction, gaming, character development, and inspiration, and do not represent a definitive census of any entire culture or religious tradition.

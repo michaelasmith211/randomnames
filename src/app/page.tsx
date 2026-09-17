@@ -90,10 +90,42 @@ const POPULAR_GENERATORS = [
   { title: 'Cool Names Generator', slug: 'cool-names-generator', desc: 'Badass, edgy, and sleek names with attitude.', icon: Zap },
 ];
 
+const HOMEPAGE_HOW_TO_STEPS = [
+  {
+    position: 1,
+    name: 'Select Name Categories & Criteria',
+    text: 'Filter by name type (first, full, last, fantasy, gamer, or brand), cultural origin, gender, and quantity from 1 to 100 names.',
+  },
+  {
+    position: 2,
+    name: 'Instant Client-Side Procedural Generation',
+    text: 'Our browser-level entropy engine shuffles verified datasets and combines morphemes with zero server latency and guaranteed uniqueness.',
+  },
+  {
+    position: 3,
+    name: 'Copy, Favorite & Export',
+    text: 'Copy single names with one click, favorite standout candidates in local memory, or export complete rosters as formatted TXT files.',
+  },
+];
+
 export default function HomePage() {
   return (
     <div className="min-h-screen">
       <JsonLd type="faq" faqs={HOMEPAGE_FAQS} />
+      <JsonLd
+        type="howto"
+        title="How to Generate Random Names Online"
+        description="Step-by-step instructions on generating random names for characters, stories, games, and businesses."
+        howToSteps={HOMEPAGE_HOW_TO_STEPS}
+      />
+      <JsonLd
+        type="itemlist"
+        itemList={POPULAR_GENERATORS.map((gen, idx) => ({
+          position: idx + 1,
+          name: gen.title,
+          url: `https://randomnamegenerator.dev/${gen.slug}/`,
+        }))}
+      />
 
       {/* 1. HERO SECTION & GENERATOR (Above the fold) */}
       <section className="pt-8 pb-14 bg-gradient-to-b from-indigo-50/50 via-white to-slate-50 border-b border-slate-200">
