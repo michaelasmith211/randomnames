@@ -25,6 +25,7 @@ import { FaqAccordion, FaqItem } from '@/components/seo/FaqAccordion';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { AdSlot } from '@/components/layout/AdSlot';
 import { CATEGORY_GROUPS } from '@/data/pages/categories';
+import { HowItWorksMedia } from '@/components/media/HowItWorksMedia';
 
 const HOMEPAGE_FAQS: FaqItem[] = [
   {
@@ -128,6 +129,17 @@ export default function HomePage() {
         title="How the Random Name Generator Works - Step by Step Infographic"
         description="Visual workflow infographic illustrating category selection, procedural name generation, and instant export."
         image="https://randomnamegenerator.dev/images/how-random-name-generator-works.jpg"
+      />
+      <JsonLd
+        type="video"
+        title="How the Random Name Generator Works - Step-by-Step Video Guide"
+        description="Watch how Random Name Generator creates authentic, culturally accurate names and procedural fantasy aliases instantly in your browser with zero server logging."
+        image="https://randomnamegenerator.dev/images/how-it-works-video-poster.jpg"
+        contentUrl="https://randomnamegenerator.dev/videos/how-random-name-generator-works.mp4"
+        embedUrl="https://randomnamegenerator.dev/#how-it-works"
+        duration="PT44S"
+        uploadDate="2026-09-18T00:00:00Z"
+        transcript="Welcome to Random Name Generator.dev — the fast, privacy-first platform for instant name generation. Step 1: Choose your preferences. Filter by full name, gender, 20+ cultural origins, style, and quantity. Step 2: Procedural synthesis. Over 1,200 verified names and authentic surnames combined in milliseconds. Step 3: Copy and export. 1-click clipboard copy, save favorites offline, or download complete TXT files. Explore over 50 specialized generators today at randomnamegenerator.dev."
       />
       <JsonLd
         type="itemlist"
@@ -375,26 +387,8 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Infographic Visual Card */}
-        <figure className="mb-12 bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden group">
-          <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
-            <picture>
-              <source srcSet="/images/how-random-name-generator-works.avif" type="image/avif" />
-              <img
-                src="/images/how-random-name-generator-works.jpg"
-                alt="How the Random Name Generator works - Step by step visual guide to generating random names with customizable filters, procedural generation, and instant export"
-                width={1376}
-                height={768}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
-              />
-            </picture>
-          </div>
-          <figcaption className="px-5 py-3.5 bg-slate-50 border-t border-slate-100 text-center text-xs text-slate-600 font-medium">
-            Figure 1: <strong>How the Random Name Generator works</strong> &mdash; A 3-step visual workflow illustrating preference filtering, client-side procedural generation, and instant export.
-          </figcaption>
-        </figure>
+        {/* Media Container: Interactive Video Player & Infographic */}
+        <HowItWorksMedia />
 
         {/* Step-by-Step Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

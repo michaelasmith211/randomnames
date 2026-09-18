@@ -13,7 +13,7 @@ export interface ListItemSchema {
 }
 
 interface JsonLdProps {
-  type?: 'website' | 'webapp' | 'faq' | 'organization' | 'howto' | 'itemlist' | 'image';
+  type?: 'website' | 'webapp' | 'faq' | 'organization' | 'howto' | 'itemlist' | 'image' | 'video';
   faqs?: { question: string; answer: string }[];
   title?: string;
   description?: string;
@@ -21,6 +21,11 @@ interface JsonLdProps {
   image?: string;
   howToSteps?: HowToStep[];
   itemList?: ListItemSchema[];
+  duration?: string;
+  transcript?: string;
+  contentUrl?: string;
+  embedUrl?: string;
+  uploadDate?: string;
 }
 
 export function JsonLd({
@@ -32,8 +37,50 @@ export function JsonLd({
   image,
   howToSteps,
   itemList,
+  duration,
+  transcript,
+  contentUrl,
+  embedUrl,
+  uploadDate,
 }: JsonLdProps) {
   const currentUrl = url || 'https://randomnamegenerator.dev/';
+
+  if (type === 'video') {
+    const videoSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: title || 'How the Random Name Generator Works - Step-by-Step Video Guide',
+      description:
+        description ||
+        'Learn how to generate authentic, culturally accurate names and procedural fantasy aliases instantly in your browser with zero server logging.',
+      thumbnailUrl:
+        image || 'https://randomnamegenerator.dev/images/how-it-works-video-poster.jpg',
+      uploadDate: uploadDate || '2026-09-18T00:00:00Z',
+      duration: duration || 'PT44S',
+      contentUrl:
+        contentUrl || 'https://randomnamegenerator.dev/videos/how-random-name-generator-works.mp4',
+      embedUrl: embedUrl || 'https://randomnamegenerator.dev/#how-it-works',
+      transcript:
+        transcript ||
+        'Welcome to Random Name Generator.dev — the fast, privacy-first platform for instant name generation. Step 1: Choose your preferences. Filter by full name, gender, 20+ cultural origins, style, and quantity. Step 2: Procedural synthesis. Over 1,200 verified names and authentic surnames combined in milliseconds. Step 3: Copy and export. 1-click clipboard copy, save favorites offline, or download complete TXT files. Explore over 50 specialized generators today at randomnamegenerator.dev.',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Random Name Generator',
+        url: 'https://randomnamegenerator.dev/',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://randomnamegenerator.dev/icon-192x192.png',
+        },
+      },
+    };
+
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+      />
+    );
+  }
 
   if (type === 'image') {
     const imageSchema = {
