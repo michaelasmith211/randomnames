@@ -1,4 +1,5 @@
 import React from 'react';
+import { SOCIAL_URLS } from '@/data/social';
 
 export interface HowToStep {
   name: string;
@@ -141,6 +142,7 @@ export function JsonLd({
       logo: 'https://randomnamegenerator.dev/icon-192x192.png',
       description: 'Privacy-first, client-side procedural and verified naming tools for creators, developers, and writers worldwide.',
       sameAs: [
+        ...SOCIAL_URLS,
         'https://github.com/michaelasmith211/randomnames',
       ],
     };
@@ -249,6 +251,7 @@ export function JsonLd({
     name: 'Random Name Generator',
     alternateName: ['RNG', 'RandomNameGenerator.dev'],
     url: 'https://randomnamegenerator.dev/',
+    sameAs: SOCIAL_URLS,
     inLanguage: 'en-US',
     description: 'Instant random name generation platform for characters, stories, games, usernames, and businesses.',
     potentialAction: {

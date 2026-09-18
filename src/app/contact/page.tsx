@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Mail, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { SOCIAL_LINKS } from '@/data/social';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -134,6 +135,43 @@ export default function ContactPage() {
 
           <div className="mt-10 pt-6 border-t border-slate-100 text-center text-xs text-slate-600 font-medium">
             You can also reach our engineering team directly at <strong>support@randomnamegenerator.dev</strong>
+          </div>
+        </div>
+
+        {/* Official Social Media Community */}
+        <div className="mt-8 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+          <div className="text-center mb-6">
+            <h2 className="text-lg font-bold text-slate-900">Official Social &amp; Community Channels</h2>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1">
+              Connect with us across our official profiles for naming inspiration, release notes, and discussions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {SOCIAL_LINKS.map((item) => (
+              <a
+                key={item.name}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3 rounded-2xl border border-slate-200/80 hover:border-slate-300 hover:shadow-sm bg-slate-50/50 hover:bg-white transition-all group"
+              >
+                <div
+                  className="w-9 h-9 rounded-xl flex items-center justify-center text-white shrink-0 shadow-xs"
+                  style={{ backgroundColor: item.color }}
+                >
+                  {item.icon}
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors truncate">
+                    {item.name}
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate">
+                    {item.handle}
+                  </div>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </div>

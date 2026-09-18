@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Logo } from '@/components/ui/Logo';
+import { SOCIAL_LINKS } from '@/data/social';
 
 export function Footer() {
   const handleOpenCookiePreferences = () => {
@@ -301,6 +302,31 @@ export function Footer() {
                 </button>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* Social Media Follow Section */}
+        <div className="border-t border-slate-800 pt-8 pb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <span className="text-sm font-semibold text-white tracking-wide block sm:inline">Official Community &amp; Social Channels</span>
+            <span className="text-xs text-slate-400 block sm:inline sm:ml-2 sm:before:content-['•'] sm:before:mr-2">
+              Follow for naming guides, linguistic updates, and community tools
+            </span>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {SOCIAL_LINKS.map((item) => (
+              <a
+                key={item.name}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Follow Random Name Generator on ${item.name}`}
+                title={`${item.name} (${item.handle})`}
+                className={`flex items-center justify-center w-9 h-9 rounded-lg bg-slate-800/90 border border-slate-700/80 text-slate-300 hover:text-white ${item.hoverBg} transition-all duration-200 hover:scale-110 shadow-sm`}
+              >
+                {item.icon}
+              </a>
+            ))}
           </div>
         </div>
 
