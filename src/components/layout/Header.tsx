@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Sparkles, Heart, Menu, X, ChevronDown, Wand2, Compass } from 'lucide-react';
 import { getSavedFavorites } from '@/lib/storage';
 
+import { Logo } from '@/components/ui/Logo';
+
 interface HeaderProps {
   onOpenFavorites?: () => void;
 }
@@ -37,20 +39,10 @@ export function Header({ onOpenFavorites }: HeaderProps) {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 text-slate-900 group focus:outline-none"
+            className="focus:outline-none"
             aria-label="Random Name Generator Homepage"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-700 flex items-center justify-center text-white shadow-sm shadow-indigo-200 group-hover:scale-105 transition-transform">
-              <span className="font-extrabold text-sm tracking-wider">RNG</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-base sm:text-lg tracking-tight leading-none text-slate-900">
-                Random Name Generator
-              </span>
-              <span className="text-[11px] text-slate-500 font-medium tracking-wide">
-                randomnamegenerator.dev
-              </span>
-            </div>
+            <Logo size="md" theme="light" />
           </Link>
 
           {/* Desktop Nav */}

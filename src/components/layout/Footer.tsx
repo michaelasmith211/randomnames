@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Logo } from '@/components/ui/Logo';
 
 export function Footer() {
   const handleOpenCookiePreferences = () => {
@@ -311,13 +312,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-300">Random Name Generator</span>
-            <span>&bull;</span>
-            <span>randomnamegenerator.dev</span>
-          </div>
-          <div>
+        <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-slate-400">
+          <Link href="/" className="focus:outline-none" aria-label="Random Name Generator Homepage">
+            <Logo size="sm" theme="dark" showSubtitle={true} />
+          </Link>
+          <div className="text-center sm:text-right">
             &copy; 2026 Random Name Generator. All rights reserved. 100% Client-Side &amp; Private.
           </div>
         </div>
