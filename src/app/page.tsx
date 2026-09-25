@@ -308,14 +308,19 @@ export default function HomePage() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5">
           {[
-            { name: 'American Names', slug: 'random-full-name-generator', flag: '🇺🇸' },
+            { name: 'American Names', slug: 'american-name-generator', flag: '🇺🇸' },
             { name: 'British Names', slug: 'british-name-generator', flag: '🇬🇧' },
             { name: 'Indian Names', slug: 'indian-name-generator', flag: '🇮🇳' },
-            { name: 'Japanese Names', slug: 'japanese-name-generator', flag: '🇯🇵' },
+            { name: 'Irish Names', slug: 'irish-name-generator', flag: '🇮🇪' },
+            { name: 'Scottish Names', slug: 'scottish-name-generator', flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿' },
             { name: 'French Names', slug: 'french-name-generator', flag: '🇫🇷' },
             { name: 'German Names', slug: 'german-name-generator', flag: '🇩🇪' },
             { name: 'Spanish Names', slug: 'spanish-name-generator', flag: '🇪🇸' },
             { name: 'Italian Names', slug: 'italian-name-generator', flag: '🇮🇹' },
+            { name: 'Japanese Names', slug: 'japanese-name-generator', flag: '🇯🇵' },
+            { name: 'Chinese Names', slug: 'chinese-name-generator', flag: '🇨🇳' },
+            { name: 'Korean Names', slug: 'korean-name-generator', flag: '🇰🇷' },
+            { name: 'Russian Names', slug: 'russian-name-generator', flag: '🇷🇺' },
             { name: 'Scandinavian Names', slug: 'scandinavian-name-generator', flag: '🇸🇪' },
             { name: 'Arabic Names', slug: 'arabic-name-generator', flag: '🇦🇪' },
           ].map((c) => (

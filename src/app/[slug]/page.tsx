@@ -25,6 +25,15 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const page = GENERATOR_PAGES[params.slug];
   if (!page) return {};
 
+  // For random-name-generator, explicitly point canonical to homepage to resolve duplicate canonical in Search Console
+  if (params.slug === 'random-name-generator') {
+    return constructMetadata({
+      title: 'Random Name Generator - Generate Random Names',
+      description: page.metaDescription,
+      path: '/',
+    });
+  }
+
   return constructMetadata({
     title: page.title,
     description: page.metaDescription,
@@ -39,9 +48,37 @@ export default function GeneratorLandingPage({ params }: PageProps) {
     notFound();
   }
 
+  // Handle root alias redirect with canonical consolidation to homepage
+  if (params.slug === 'random-name-generator') {
+    return (
+      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 py-16">
+        <div className="max-w-md bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+          <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+            RNG
+          </div>
+          <h1 className="text-xl font-bold text-slate-900 mb-2">Redirecting to Homepage...</h1>
+          <p className="text-sm text-slate-600 mb-6">
+            If you are not redirected automatically, click below to open the official Random Name Generator.
+          </p>
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold transition-colors"
+          >
+            <span>Go to Generator</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: 'window.location.replace("https://randomnamegenerator.dev/");',
+          }}
+        />
+      </div>
+    );
+  }
+
   const breadcrumbs = [
     { label: 'Categories', href: '/categories/' },
-    { label: page.category, href: '/categories/' },
     { label: page.h1, href: `/${page.slug}/` },
   ];
 

@@ -31,7 +31,7 @@ export function constructMetadata({
   keywords?: string[];
 } = {}): Metadata {
   const cleanPath = path ? (path.startsWith('/') ? path : `/${path}`) : '';
-  const canonicalUrl = `${SITE_CONFIG.url}${cleanPath}${cleanPath.endsWith('/') || cleanPath === '' ? '' : '/'}`;
+  const canonicalUrl = `${SITE_CONFIG.url}${cleanPath ? (cleanPath.endsWith('/') ? cleanPath : `${cleanPath}/`) : '/'}`;
 
   return {
     title,

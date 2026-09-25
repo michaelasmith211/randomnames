@@ -68,6 +68,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/rpg-name-generator/" className="hover:text-white transition-colors">
+                  RPG Characters
+                </Link>
+              </li>
+              <li>
                 <Link href="/warrior-name-generator/" className="hover:text-white transition-colors">
                   Warrior Names
                 </Link>
@@ -156,6 +161,16 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/gaming-name-generator/" className="hover:text-white transition-colors">
+                  Gaming Handles
+                </Link>
+              </li>
+              <li>
+                <Link href="/nickname-generator/" className="hover:text-white transition-colors">
+                  Nicknames
+                </Link>
+              </li>
+              <li>
                 <Link href="/random-username-generator/" className="hover:text-white transition-colors">
                   Random Usernames
                 </Link>
@@ -165,23 +180,23 @@ export function Footer() {
                   Minecraft Names
                 </Link>
               </li>
-              <li>
-                <Link href="/cool-names-generator/" className="hover:text-white transition-colors">
-                  Cool Names
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Col 5: Business */}
+          {/* Col 5: Business & Styles */}
           <div>
             <h3 className="text-white text-xs font-bold uppercase tracking-wider mb-4">
-              Business Names
+              Business &amp; Styles
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/business-name-generator/" className="hover:text-white transition-colors">
                   Business Generator
+                </Link>
+              </li>
+              <li>
+                <Link href="/brand-name-generator/" className="hover:text-white transition-colors">
+                  Brand Names
                 </Link>
               </li>
               <li>
@@ -195,13 +210,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/unique-names-generator/" className="hover:text-white transition-colors">
-                  Unique Names
+                <Link href="/rare-names-generator/" className="hover:text-white transition-colors">
+                  Rare Names
                 </Link>
               </li>
               <li>
-                <Link href="/classic-names-generator/" className="hover:text-white transition-colors">
-                  Classic Names
+                <Link href="/cool-names-generator/" className="hover:text-white transition-colors">
+                  Cool Names
+                </Link>
+              </li>
+              <li>
+                <Link href="/unique-names-generator/" className="hover:text-white transition-colors">
+                  Unique Names
                 </Link>
               </li>
             </ul>
@@ -210,12 +230,42 @@ export function Footer() {
           {/* Col 6: Country */}
           <div>
             <h3 className="text-white text-xs font-bold uppercase tracking-wider mb-4">
-              Country Names
+              World Cultures
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
+                <Link href="/american-name-generator/" className="hover:text-white transition-colors">
+                  American Names
+                </Link>
+              </li>
+              <li>
+                <Link href="/british-name-generator/" className="hover:text-white transition-colors">
+                  British Names
+                </Link>
+              </li>
+              <li>
+                <Link href="/irish-name-generator/" className="hover:text-white transition-colors">
+                  Irish Names
+                </Link>
+              </li>
+              <li>
+                <Link href="/scottish-name-generator/" className="hover:text-white transition-colors">
+                  Scottish Names
+                </Link>
+              </li>
+              <li>
                 <Link href="/japanese-name-generator/" className="hover:text-white transition-colors">
                   Japanese Names
+                </Link>
+              </li>
+              <li>
+                <Link href="/chinese-name-generator/" className="hover:text-white transition-colors">
+                  Chinese Names
+                </Link>
+              </li>
+              <li>
+                <Link href="/korean-name-generator/" className="hover:text-white transition-colors">
+                  Korean Names
                 </Link>
               </li>
               <li>
@@ -224,8 +274,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/british-name-generator/" className="hover:text-white transition-colors">
-                  British Names
+                <Link href="/russian-name-generator/" className="hover:text-white transition-colors">
+                  Russian Names
                 </Link>
               </li>
               <li>
@@ -244,8 +294,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/scandinavian-name-generator/" className="hover:text-white transition-colors">
-                  Nordic Names
+                <Link href="/arabic-name-generator/" className="hover:text-white transition-colors">
+                  Arabic Names
                 </Link>
               </li>
             </ul>

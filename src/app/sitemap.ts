@@ -63,13 +63,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // 2. High-value generator landing pages
-  const generatorRoutes: MetadataRoute.Sitemap = Object.keys(GENERATOR_PAGES).map((slug) => ({
-    url: `${baseUrl}/${slug}/`,
-    lastModified,
-    changeFrequency: 'weekly',
-    priority: 0.85,
-  }));
+  // 2. High-value generator landing pages (excluding duplicate root alias)
+  const generatorRoutes: MetadataRoute.Sitemap = Object.keys(GENERATOR_PAGES)
+    .filter((slug) => slug !== 'random-name-generator')
+    .map((slug) => ({
+      url: `${baseUrl}/${slug}/`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    }));
 
   return [...staticRoutes, ...generatorRoutes];
 }
